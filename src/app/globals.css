@@ -11,4 +11,11 @@
   }
 }
 
-
+@layer utilities {
+  .container {
+    @apply w-full max-w-5xl mx-auto px-4;
+  }
+}
+html, body {
+  overflow-x: hidden;
+}

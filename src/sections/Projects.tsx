@@ -43,6 +43,7 @@ const portfolioProjects = [
     link: "https://www.linkedin.com/posts/abu-bakar-384aa1264_jetpackcompose-androiddev-bmi-activity-7226121848206368768-ZX0I?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEDx6tQBEev8tj3lPNMf0M79G9shv1EW5no",
     image: aiStartupLandingPage,
   },
+
 ];
 
 export const ProjectsSection = () => {

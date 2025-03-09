@@ -7,7 +7,7 @@ import  SparkleIcon from '@/assets/icons/sparkle.svg';
 import { HeroOrbit } from "@/components/HeroOrbit";
 export const HeroSection = () => {
   return <div className="py-[90px] md:py-[145px] lg:py-[150px] relative z-0">
-    <div className="fixed inset-0 -z-30 opacity-5 overflow-x-clip" style={{ backgroundImage: `url(${grainImage.src})` }}> </div>
+    <div className="fixed inset-0 -z-30 opacity-5 overflow-hidden h-full" style={{ backgroundImage: `url(${grainImage.src})` }}> </div>
    <div className=" size-[620px] hero-ring"></div>
    <div  className="size-[820px] hero-ring"
   style={{
@@ -62,8 +62,8 @@ export const HeroSection = () => {
           <div className="text-sm font-medium"> Available for new projects</div>
         </div>
         <div className="max-w-lg mx-auto">
-          <h1 className="font-serif text-3xl md:text-5xl lg:text-[3.2rem] text-center mt-8 tracking-wide">
-            Building Exceptional User Experiences
+          <h1 className="font-serif text-4xl md:text-5xl lg:text-[3.2rem] text-center mt-8 tracking-wide">
+            I,m Abu Bakar Android Developer
 
           </h1>
 
