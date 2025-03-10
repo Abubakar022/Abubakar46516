@@ -27,7 +27,7 @@ import Chrome from "@/assets/icons/chrome.svg";
 import RESTAPI from "@/assets/icons/pinboard.svg";
 import Netbeans from "@/assets/icons/apachenetbeanside.svg";
 import { TechIcon } from "@/components/TechIcon";
-import mapImage from "@/assets/images/map3.png";
+import mapImage from "@/assets/images/map5.jpg";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolBoxItems } from "@/components/ToolboxItems";
@@ -91,6 +91,7 @@ import { ToolBoxItems } from "@/components/ToolboxItems";
   {
     title: "Play Console",
     iconType: GooglePlay,
+
   },
   {
     title: "MySQL",
@@ -117,44 +118,60 @@ import { ToolBoxItems } from "@/components/ToolboxItems";
     iconType: Figma,
   },
 ];
-const Skills=[
+const Skills = [
   {
-    title:'Android Development',
-    emoji:'📱',
+    title: "Android",
+    emoji: "📱",
+    left: "5%",
+    top: "5%",
   },
   {
-    title:'Flutter & Dart',
-    emoji:'🎯',
+    title: "Flutter",
+    emoji: "🎯",
+    left: "50%",
+    top: "5%",
   },
   {
-    title:'Backend Integration',
-    emoji:'🔗',
+    title: "Backend",
+    emoji: "🔗",
+    left: "10%",
+    top: "45%",
   },
   {
-    title:'Version Control',
-    emoji:'🛠️',
+    title: "GitHub",
+    emoji: "🛠️",
+    left: "35%",
+    top: "40%",
   },
   {
-    title:'UI/UX Design',
-    emoji:'🎨',
+    title: "Teaching",
+    emoji: "👨‍🏫",
+    left: "60%",
+    top: "50%", 
   },
   {
-    title:'Teaching Assistant',
-    emoji:'👨‍🏫',
+    title: "Coding",
+    emoji: "💻",
+    left: "5%",
+    top: "80%",
   },
   {
-    title:'Problem Solving',
-    emoji:'🧠',
+    title: "APIs",
+    emoji: "🌐",
+    left: "45%",
+    top: "90%",
   }
-]
+];
+
 export const AboutSection = () => {
   return <div className="py-20">
     <div className="container">
     <SectionHeader title="About Me" eyebrow="A Glimpse into My World" description="Learn more about who I am, what I do, and the skills I bring to the table"/>
-    <div className="mt-20 flex-col gap-6">
+    <div className="mt-20 flex flex-col gap-6">
     
-    
-      <Card className="h-[334px]">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3  md:gap-6">
+
+      <Card className="h-[320px] md:col-span-2 lg:col-span-1">
 <div className="flex flex-col">
   <div className="inline-flex items-center gap-2">
   <StarIcon className="size-9 text-emerald-300"/>
@@ -163,7 +180,7 @@ export const AboutSection = () => {
   <p className="text-sm text-white/60 mt-2">Showcasing my Expertise and Achievements.</p>
 
   </div>
- <div className="w-45 mx-auto mt-4">
+ <div className="w-[244px] md:w-[230px]   mx-auto mt-3 md:mt-1">
   <Image src={certificate} alt="Certificate" />
   </div>
 
@@ -171,32 +188,45 @@ export const AboutSection = () => {
       </Card>
     
     
-      <Card className="h-[334px] p-0">
+      <Card className="h-[320px] p-0 md:col-span-3 lg:col-span-2">
 <div>
-  <CardHeader title="My Toolbox" description="A collection of powerful tools and technologies I use to build seamless, high-performing, and visually stunning applications across different platforms." className=" px-6 pt-6"/>
+  <CardHeader title="My Toolbox" description="A collection of tools and technologies I use to build seamless, high-performance, and visually stunning applications." className=" px-6 pt-6"/>
   
 </div>
 <ToolBoxItems toolbox={toolbox} className="mt-6"/>
-<ToolBoxItems toolbox={toolbox} className="mt-6" itemsWrapperClassName="-translate-x-1/2"/>
+<ToolBoxItems toolbox={toolbox} className="mt-6 " itemsWrapperClassName="-translate-x-1/2"/>
       </Card>
-      <Card>
-<div>
-  <CardHeader title="Tech Proficiency List" description="See the skills that define my development expertise."/>
+      </div>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6 lg:grid-cols-3">
+      <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
+  <div>
+    <CardHeader title="Tech Proficiency List" description="See the skills that define my development expertise." className="px-6 py-6"/>
+  </div>
 
-</div>
-<div>
-  {Skills.map((skill)=>(
-    <div key={skill.title}>
-      <span>{skill.title}</span>
-      <span>{skill.emoji}</span>
-    </div>
-  ))}
-</div>
+  <div className="relative w-full h-full flex">
+    {Skills.map((skill) => (
+      <div
+        key={skill.title}
+        className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
+        style={{
+          left: skill.left || "0%",   // ✅ Default value
+          top: skill.top || "0%",     // ✅ Default value
+        }}
+      >
+        <span>{skill.emoji}</span>
+        <span className="font-medium text-gray-950">{skill.title}</span>
+      </div>
+    ))}
+  </div>
+</Card>
+
+      <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
+      <Image src={mapImage} alt="mapImage" className="h-full w-full md:h-[318px] lg:h-[325px] object-cover object-left-top"/>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-20 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
+      <Image src={smileMemoji} alt="smileEmoji" className="size-20" />
+      </div>
       </Card>
-      <Card>
-      <Image src={mapImage} alt="mapImage" />
-      <Image src={smileMemoji} alt="smileEmoji" />
-      </Card>
+      </div>
     </div>
   </div>
   </div>
