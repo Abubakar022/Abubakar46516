@@ -13,9 +13,21 @@
 
 @layer utilities {
   .container {
-    @apply w-full max-w-5xl mx-auto px-4;
+    @apply w-full max-w-5xl mx-auto px-4 lg:relative;
+  }
+  .animate-move-left {
+    animation: move-left 1s linear infinite;
   }
 }
 html, body {
   overflow-x: hidden;
+}
+
+@keyframes move-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
