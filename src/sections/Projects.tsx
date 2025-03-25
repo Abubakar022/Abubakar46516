@@ -50,8 +50,8 @@ const portfolioProjects = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="pb-16 lg:py-40">
-      <div className="container mx-auto px-4 sm:px-8">
+    <section id="projects" className="pb-16 lg:py-40    ">
+      <div className="container mx-auto px-4 sm:px-8  ">
         <div className="flex justify-center">
           <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 bg-clip-text text-transparent text-center md:mt-14 md:font-bold md:text-[17px]">
             Real-world Results
@@ -63,11 +63,11 @@ export const ProjectsSection = () => {
         <p className="text-center md:text-lg lg:text-xl text-white/60 mt-4 max-w-md mx-auto">
           See how I transformed complex concepts into seamless and efficient Android applications
         </p>
-        <div className="flex flex-col md:mt-20 mt-10 gap-20 relative">
+        <div className=" flex flex-col  md:mt-20 mt-10 gap-20 relative  h-full">
           {portfolioProjects.map((project, index) => (
             <Card
               key={project.title}
-              className="md:px-10 md:pt-12 px-8 pt-8 pb-0 lg:pt-16 lg:px-20 lg:sticky lg:top-20"
+              className="md:px-10 md:pt-12 px-8 pt-8 pb-0 lg:pt-16 lg:px-20 lg:sticky lg:top-20 h-full"
             >
               <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                 <div className="lg:pb-16">

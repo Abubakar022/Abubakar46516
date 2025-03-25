@@ -8,7 +8,7 @@ import { ContactSection } from "@/sections/Contact";
 import { Footer   } from "@/sections/Footer";
 export default function Home() {
   return (
-    <div>
+    <div className="">
      <Header/>
      <HeroSection/>
      <ProjectsSection/>
