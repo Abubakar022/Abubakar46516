@@ -1,11 +1,11 @@
 import Image from "next/image"; // Import Next.js Image component
 import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
+import saving from "@/assets/images/saving.png";
 import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUprightIcon from "@/assets/icons/arrow-up-right.svg";
-import study from "@/assets/images/study.jpeg";
-import bmi from "@/assets/images/bmi.jpeg";
+import study from "@/assets/images/study.png";
+import bmi from "@/assets/images/bmi.png";
 import { Card } from "@/components/Card";
 
 const portfolioProjects = [
@@ -43,7 +43,7 @@ const portfolioProjects = [
       { title: "Enhanced security with local storage" },
     ],
     link: "https://www.linkedin.com/posts/abu-bakar-384aa1264_savingnotes-notemanagement-efficiency-activity-7196926541157568512-eZTh?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEDx6tQBEev8tj3lPNMf0M79G9shv1EW5no",
-    image: lightSaasLandingPage,
+    image: saving,
   },
   
 ];
