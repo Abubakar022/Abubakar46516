@@ -45,7 +45,7 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <div className="py-16 lg:py-24">
+    <div className="py-16 lg:py-24 overflow-hidden w-full max-w-full relative">
       <div className="container">
         <SectionHeader
           title="Happy Clients"
@@ -53,14 +53,17 @@ export const TestimonialsSection = () => {
           description="Don&rsquo;t just take my word for it. Hear from those I&rsquo;ve worked with!"
         />
 
-        <div className="mt-12 lg:mt-24 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4">
-          <div className="flex flex-none gap-8 pr-8 animate-move-left [animation-duration:90s] hover:[animation-play-state:paused]">
+        <div className="mt-12 lg:mt-24 flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4">
+          <div 
+            className="flex flex-none gap-8 pr-8 animate-move-left [animation-duration:90s] hover:[animation-play-state:paused] will-change-transform"
+            style={{ transform: "translate3d(0, 0, 0)" }}
+          >
             {[...Array(2)].map((_, index) => (
               <Fragment key={index}>
                 {testimonials.map((testimonial) => (
                   <Card
                     key={testimonial.name}
-                    className="max-w-xs p-4 md:p-8 md:max-w-md hover:-rotate-3 transition duration-300"
+                    className="max-w-xs p-6 md:p-8 md:max-w-md hover:-rotate-2 transition-transform duration-300 will-change-transform"
                   >
                     <div className="flex gap-4 items-center">
                       <div className="size-14 bg-gray-700 inline-flex rounded-full items-center justify-center flex-shrink-0 overflow-hidden">

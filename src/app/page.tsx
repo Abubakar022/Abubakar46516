@@ -8,15 +8,15 @@ import { ContactSection } from "@/sections/Contact";
 import { Footer   } from "@/sections/Footer";
 export default function Home() {
   return (
-    <div className="">
-     <Header/>
-     <HeroSection/>
-     <ProjectsSection/>
-     <TapeSection/>
-     <TestimonialsSection/>
-     <AboutSection/>
-     <ContactSection/>
-     <Footer/>
+    <div className="overflow-x-hidden w-full max-w-full relative">
+      <Header />
+      <HeroSection />
+      <ProjectsSection />
+      <TapeSection />
+      <TestimonialsSection />
+      <AboutSection />
+      <ContactSection />
+      <Footer />
     </div>
   );
 }

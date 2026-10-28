@@ -27,7 +27,8 @@ const config: Config = {
       },
       animation: {
         "ping-tu": "ping-tu 1s ease-in-out infinite",
-        "move-left": "move-left 1s linear infinite", // Add move-left animation here.
+        "move-left": "move-left 1s linear infinite",
+        "move-right": "move-right 1s linear infinite",
       },
       keyframes: {
         "ping-tu": {
@@ -38,10 +39,18 @@ const config: Config = {
         },
         "move-left": {
           "0%": {
-            transform: "translateX(0)",
+            transform: "translate3d(0, 0, 0)",
           },
           "100%": {
-            transform: "translateX(-50%)",
+            transform: "translate3d(-50%, 0, 0)",
+          },
+        },
+        "move-right": {
+          "0%": {
+            transform: "translate3d(-50%, 0, 0)",
+          },
+          "100%": {
+            transform: "translate3d(0, 0, 0)",
           },
         },
       },

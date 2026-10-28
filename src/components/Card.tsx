@@ -10,19 +10,20 @@ export const Card = ({
   return (
     <div
       className={twMerge(
-        "bg-gray-800 rounded-3xl relative z-0 after:z-10 overflow-hidden after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl after:outline-white/20 p-6 after:pointer-events-none",
+        "bg-gray-800/95 border border-white/15 rounded-3xl relative z-0 overflow-hidden p-6 shadow-xl",
         className
       )}
+      style={{
+        transform: "translate3d(0, 0, 0)",
+        ...other.style,
+      }}
       {...other}
     >
-      {/* Background Image Div */}
-      <div
-        className="absolute inset-0 -z-10 opacity-5"
-        style={{ backgroundImage: `url(${grainImage.src})`, backgroundSize: "cover" }}
-      />
+      {/* Background Subtle Gradient Overlay - High Performance */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white/[0.04] to-transparent pointer-events-none" />
       
       {/* Children Content */}
-      <div>{children}</div>
+      <div className="relative z-10">{children}</div>
     </div>
   );
 };

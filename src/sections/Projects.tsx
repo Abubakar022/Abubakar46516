@@ -91,7 +91,7 @@ const portfolioProjects = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="pb-16 lg:py-40">
+    <section id="projects" className="pb-16 lg:py-40 overflow-hidden w-full max-w-full relative">
       <div className="container mx-auto px-4 sm:px-8">
         <div className="flex justify-center">
           <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-emerald-300 to-sky-400 bg-clip-text text-transparent text-center md:mt-14 md:font-bold md:text-[17px]">

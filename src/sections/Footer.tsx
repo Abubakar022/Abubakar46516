@@ -17,11 +17,13 @@ const footerlink = [
 
 export const Footer = () => {
   return (
-    <footer className="relative z-10 overflow-x-clip">
-      {/* Background glow effect - moved z-index lower to prevent blocking clicks */}
-      <div 
-        className="absolute h-[400px] w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/30 z-0 pointer-events-none"
-        style={{ maskImage: "radial-gradient(50% 50% at bottom center, black, transparent)" }}>
+    <footer className="relative z-10 overflow-hidden w-full max-w-full">
+      {/* Background glow effect - strictly clipped inside inset-0 container to eliminate mobile horizontal overflow */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div 
+          className="absolute h-[400px] w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/20 pointer-events-none"
+          style={{ maskImage: "radial-gradient(50% 50% at bottom center, black, transparent)" }}>
+        </div>
       </div>
 
       <div className="container relative z-10">

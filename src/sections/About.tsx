@@ -168,79 +168,80 @@ const Skills = [
 
 export const AboutSection = () => {
   const cf = useRef(null);
-  return <div id="about" className="py-20">
-    <div className="container">
-    <SectionHeader title="About Me" eyebrow="A Glimpse into My World" description="Learn more about who I am, what I do, and the skills I bring to the table"/>
-    <div className="mt-20 flex flex-col gap-6">
-    
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3  md:gap-6">
+  return (
+    <div id="about" className="py-20 overflow-hidden w-full max-w-full relative">
+      <div className="container">
+        <SectionHeader title="About Me" eyebrow="A Glimpse into My World" description="Learn more about who I am, what I do, and the skills I bring to the table"/>
+        <div className="mt-20 flex flex-col gap-6">
+        
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3 md:gap-6">
+            <Card className="h-[320px] md:col-span-2 lg:col-span-1">
+              <div className="flex flex-col">
+                <div className="inline-flex items-center gap-2">
+                  <StarIcon className="size-9 text-emerald-300"/>
+                  <h3 className="font-serif text-[25px]">My Credentials</h3>
+                </div>
+                <p className="text-sm text-white/60 mt-2">Showcasing my Expertise and Achievements.</p>
+              </div>
+              <div className="w-[244px] md:w-[230px] mx-auto mt-3 md:mt-1">
+                <a href="https://www.credly.com/badges/c08bf5b5-560b-4ebc-963b-8f90435db243/linked_in_profile" target="_blank" rel="noopener noreferrer">
+                  <Image src={certificate} alt="Certificate" width={230} height={180} className="w-auto h-auto mx-auto" />
+                </a>
+              </div>
+            </Card>
+          
+            <Card className="h-[320px] p-0 md:col-span-3 lg:col-span-2">
+              <div>
+                <CardHeader title="My Toolbox" description="A collection of tools and technologies I use to build seamless, high-performance, and visually stunning applications." className="px-6 pt-6"/>
+              </div>
+              <ToolBoxItems toolbox={toolbox} className="mt-6" itemsWrapperClassName="animate-move-left [animation-duration:50s]"/>
+              <ToolBoxItems toolbox={toolbox} className="mt-6" itemsWrapperClassName="-translate-x-1/2 animate-move-right [animation-duration:25s]"/>
+            </Card>
+          </div>
 
-      <Card className="h-[320px] md:col-span-2 lg:col-span-1">
-<div className="flex flex-col">
-  <div className="inline-flex items-center gap-2">
-  <StarIcon className="size-9 text-emerald-300"/>
-  <h3 className="font-serif text-[25px]">My Credentials</h3>
-  </div>
-  <p className="text-sm text-white/60 mt-2">Showcasing my Expertise and Achievements.</p>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6 lg:grid-cols-3">
+            <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
+              <div>
+                <CardHeader title="Tech Proficiency List" description="See the skills that define my development expertise." className="px-6 py-6"/>
+              </div>
 
-  </div>
- <div className="w-[244px] md:w-[230px]   mx-auto mt-3 md:mt-1">
- <a href="https://www.credly.com/badges/c08bf5b5-560b-4ebc-963b-8f90435db243/linked_in_profile" target="_blank" rel="noopener noreferrer">
-  <Image src={certificate} alt="Certificate" />
-</a>
+              <div className="relative w-full flex-1 min-h-[170px]" ref={cf}>
+                {Skills.map((skill) => (
+                  <motion.div
+                    key={skill.title}
+                    className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute cursor-grab active:cursor-grabbing shadow-md select-none touch-none"
+                    style={{
+                      left: skill.left || "0%",
+                      top: skill.top || "0%",
+                    }}
+                    drag
+                    dragConstraints={cf}
+                    dragElastic={0.15}
+                    whileDrag={{ scale: 1.05 }}
+                  >
+                    <span>{skill.emoji}</span>
+                    <span className="font-medium text-gray-950">{skill.title}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </Card>
 
-  </div>
-
-
-      </Card>
-    
-    
-      <Card className="h-[320px] p-0 md:col-span-3 lg:col-span-2">
-<div>
-  <CardHeader title="My Toolbox" description="A collection of tools and technologies I use to build seamless, high-performance, and visually stunning applications." className=" px-6 pt-6"/>
-  
-</div>
-<ToolBoxItems toolbox={toolbox} className="mt-6" itemsWrapperClassName="animate-move-left [animation-duration:50s]"/>
-<ToolBoxItems toolbox={toolbox} className="mt-6 " itemsWrapperClassName="-translate-x-1/2 animate-move-right [animation-duration:25s]"/>
-      </Card>
-      </div>
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-6 lg:grid-cols-3">
-      <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
-  <div>
-    <CardHeader title="Tech Proficiency List" description="See the skills that define my development expertise." className="px-6 py-6"/>
-  </div>
-
-  <div className="relative w-full flex-1 min-h-[170px]" ref={cf}>
-    {Skills.map((skill) => (
-      <motion.div
-        key={skill.title}
-        className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute cursor-grab active:cursor-grabbing shadow-md select-none touch-none"
-        style={{
-          left: skill.left || "0%",   // ✅ Default value
-          top: skill.top || "0%",     // ✅ Default value
-        }}
-        drag
-        dragConstraints={cf}
-        dragElastic={0.15}
-        whileDrag={{ scale: 1.05 }}
-      >
-        <span>{skill.emoji}</span>
-        <span className="font-medium text-gray-950">{skill.title}</span>
-      </motion.div>
-    ))}
-  </div>
-</Card>
-
-      <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
-      <Image src={mapImage} alt="mapImage" className="h-full w-full md:h-[318px] lg:h-[325px] object-cover object-left-top"/>
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-20 rounded-full  after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration:2s] "></div>
-      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-10 "></div>
-      <Image src={smileMemoji} alt="smileEmoji" className="size-20" />
-      </div>
-      </Card>
+            <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1 overflow-hidden">
+              <Image 
+                src={mapImage} 
+                alt="Location Map" 
+                sizes="(max-width: 768px) 100vw, 360px"
+                className="h-full w-full md:h-[318px] lg:h-[325px] object-cover object-left-top"
+              />
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 size-20 rounded-full after:content-[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration:2s] will-change-transform"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-10"></div>
+                <Image src={smileMemoji} alt="smileEmoji" className="size-20" width={80} height={80} />
+              </div>
+            </Card>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
+  );
 };
