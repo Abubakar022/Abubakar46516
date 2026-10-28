@@ -8,7 +8,11 @@ const footerlink = [
   {
     title: "GitHub",
     link: "https://github.com/Abubakar022",
-  }
+  },
+  {
+    title: "Email",
+    link: "mailto:abubakardev44@gmail.com",
+  },
 ];
 
 export const Footer = () => {
@@ -22,15 +26,15 @@ export const Footer = () => {
 
       <div className="container relative z-10">
         <div className="border-t border-white/15 py-6 text-sm flex flex-col md:flex-row md:justify-between items-center gap-8">
-          <div className="text-white/40">&copy; 2025. All rights reserved</div>
+          <div className="text-white/40">&copy; {new Date().getFullYear()}. All rights reserved</div>
           <nav className="flex flex-col md:flex-row items-center gap-8">
             {footerlink.map((link) => (
               <a 
                 href={link.link} 
                 key={link.title} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-white/70 hover:text-white"
+                target={link.link.startsWith("mailto:") ? undefined : "_blank"} 
+                rel={link.link.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                className="inline-flex items-center gap-1.5 text-white/70 hover:text-white transition"
               >
                 <span className="font-semibold">{link.title}</span>
                 <ArrowUpRight className="size-4"/>

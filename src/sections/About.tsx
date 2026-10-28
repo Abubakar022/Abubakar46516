@@ -210,17 +210,19 @@ export const AboutSection = () => {
     <CardHeader title="Tech Proficiency List" description="See the skills that define my development expertise." className="px-6 py-6"/>
   </div>
 
-  <div className="relative w-full h-full flex" ref={cf}>
+  <div className="relative w-full flex-1 min-h-[170px]" ref={cf}>
     {Skills.map((skill) => (
       <motion.div
         key={skill.title}
-        className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
+        className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute cursor-grab active:cursor-grabbing shadow-md select-none touch-none"
         style={{
           left: skill.left || "0%",   // ✅ Default value
           top: skill.top || "0%",     // ✅ Default value
         }}
         drag
         dragConstraints={cf}
+        dragElastic={0.15}
+        whileDrag={{ scale: 1.05 }}
       >
         <span>{skill.emoji}</span>
         <span className="font-medium text-gray-950">{skill.title}</span>

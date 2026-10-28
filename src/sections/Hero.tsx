@@ -10,17 +10,16 @@ import StarIcon from '@/assets/icons/star.svg';
 import  SparkleIcon from '@/assets/icons/sparkle.svg'; 
 
 import { HeroOrbit } from "@/components/HeroOrbit";
+
+const roles = [
+  "🚀 Full Stack Developer",
+  "🔥 Flutter Developer",
+  "🎓 Teaching Fellow"
+];
+
 export const HeroSection = () => {
-  const roles = [
-    "🚀 Android Developer",
-    "🔥 Flutter Developer",
-    "🎓 Teaching Fellow"
-  ];
-  
-  
-  const [showRoles, setShowRoles] = useState(false);
   return <div className="py-[90px] md:py-[145px] lg:py-[150px] relative z-0">
-    <div id="home" className="fixed inset-0 -z-30 opacity-5 overflow-hidden h-full" style={{ backgroundImage: `url(${grainImage.src})` }}> </div>
+    <div id="home" className="fixed inset-0 -z-30 opacity-5 overflow-hidden h-full pointer-events-none" style={{ backgroundImage: `url(${grainImage.src})` }}> </div>
    <div className=" size-[620px] hero-ring"></div>
    <div  className="size-[820px] hero-ring"
   style={{
@@ -99,31 +98,34 @@ export const HeroSection = () => {
     </div>
 
           <p className="mt-4 text-center text-white/60 px-2 md:text-large lg:text-[1.2rem]">
-            Certified Android (Meta) & Flutter Developer. I build high-performance cross-platform apps with Flutter, Dart, Kotlin & Jetpack Compose. 🚀
+            Certified Full Stack & Mobile Developer. I build high-performance web, desktop, and mobile systems with Next.js, Go, Python, Flutter & modern cloud architectures. 🚀
           </p>
         </div>
       </div>
       <div className="flex flex-col md:flex-row lg:flex-row justify-center items-center mt-8 gap-4">
-      <button 
-  className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl"
-  onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
->
-  <span className="font-semibold">Explore My Work</span>
-  <ArrowDown className="size-4" />
-</button>
+        <a 
+          href="#projects"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:bg-white/5 transition cursor-pointer"
+        >
+          <span className="font-semibold">Explore My Work</span>
+          <ArrowDown className="size-4" />
+        </a>
 
         <a 
-  href="https://www.linkedin.com/in/abu-bakar-384aa1264/" 
-  target="_blank" 
-  rel="noopener noreferrer"
->
-  <button className="inline-flex items-center gap-2 border-white bg-white text-gray-900 px-6 h-12 rounded-xl">
-    <span>👋</span>
-    <span className="font-semibold">Let&rsquo;s connect!
-    </span>
-  </button>
-</a>
-
+          href="#contact" 
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+          }}
+          className="inline-flex items-center gap-2 border-white bg-white text-gray-900 px-6 h-12 rounded-xl hover:bg-white/90 transition shadow-sm cursor-pointer"
+        >
+          <span>👋</span>
+          <span className="font-semibold">Let&rsquo;s connect!</span>
+        </a>
       </div>
     </div>
 

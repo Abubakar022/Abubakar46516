@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
+    // Enable jfif support in next-image-loader
+    const imageRule = config.module.rules.find((rule) =>
+      rule.loader === "next-image-loader"
+    );
+    if (imageRule && imageRule.test) {
+      imageRule.test = /\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg|jfif)$/i;
+    }
+
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
